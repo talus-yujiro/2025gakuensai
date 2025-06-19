@@ -1,0 +1,122 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+body {
+    background-color: #121212;
+    color: #e0e0e0;
+    margin: 0;
+}
+
+.body {
+    transition: opacity 2s ease;
+}
+
+header {
+    width: 100vw;
+    height: 10vh;
+    background-color: #e0e0e0;
+    color: #121212;
+    position: fixed;
+    top: 0;
+}
+
+header h1 {
+    font-size: 3.5vh;
+    text-align: center;
+}
+
+header h1 a {
+    color: #121212;
+    text-decoration: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10vh;
+}
+
+section {
+    color: #e0e0e0;
+    background-color: #121212;
+    border-radius: 1rem;
+    margin: 2rem auto;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    padding-bottom: 1rem;
+    width: 60vw;
+    border: 2px solid #e0e0e0;
+}
+
+section h2 {
+    display: block;
+    color: #121212;
+    background-color: #e0e0e0;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 1rem;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    padding: 1.5rem 1.5rem;
+}
+
+section>*:not(h2, p) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+section p {
+    margin: auto 1rem;
+}
+
+section img {
+    width: 100%;
+}
+
+section.highlight {
+    background-color: var(--accent-color-thin);
+}
+
+section.highlight h2 {
+    background-color: var(--accent-color);
+}
+
+main h1 {
+    background-color: #e0e0e0;
+    color: #121212;
+    border-radius: 10px;
+}
+
+main a {
+    background-color: #e0e0e0;
+    color: #121212;
+
+    background: #89ff8d;
+}
+
+a {
+    color: #e0e0e0;
+}
+
+input {
+    border: none;
+    border-radius: 5px;
+    margin-left: 0.5rem;
+}
+
+footer {
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    section {
+        width: 90vw;
+    }
+}

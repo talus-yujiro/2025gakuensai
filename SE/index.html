@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!--文字コード・互換モード-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <title>効果音 | 2A - 2025学苑祭</title>
+    <!--ビューポート-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--css-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/glitch.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <!--web情報-->
+    <meta name="keywords" content="水戸一, 水戸一附属, 水戸一附属中, 二学年,">
+    <meta name="description" content="">
+    <meta name="author" content="©️ 2025 talus">
+    <!--更新日時-->
+    <meta name="date" content="2025-06-09">
+    <meta name="creation_date" content="2025">
+    <!--URL-->
+    <link rel="canonical" href="https://talus-yujiro.github.io/2025gakuensai/">
+    <!--アイコン-->
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="" sizes="180x180">
+    <!--windows-->
+    <meta name="msapplication-config" content="none">
+    <meta name="msapplication-TileImage" content="./img/mitoichi-fuzoku.png">
+    <!--safari-->
+    <link rel="mask-icon" href="">
+    <!--Android-->
+    <meta name="theme-color" content="#5787ff">
+    <link rel="icon" type="image/png" href="" sizes="192x192">
+    <!--CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.35.4"></script>
+    <style>
+        .music-button {
+            width: 50%;
+            height: 20vh;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="../index.html">2025学苑祭</a></h1>
+    </header>
+
+    <main>
+        <section>
+            <h2>SE一覧</h2>
+            <button class="music-button" data-music="open_door" data-type="se" id="open_door">門が開く音</button>
+        </section>
+        <section>
+            <h2>BGM一覧</h2>
+            <button class="music-button" data-music="fire" data-type="bgm" id="fire">火が燃える音</button>
+            <button class="music-button" data-music="rain" data-type="bgm" id="rain">雨の音</button>
+            <button class="music-button" data-music="storm_rain" data-type="bgm" id="storm_rain">雷雨の音</button>
+        </section>
+    </main>
+
+    <script>
+        document.addEventListener("click", async (e) => {
+            const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+
+            const currentRequest = e.target.dataset.music;
+            const currentType = e.target.dataset.type;
+
+            if (currentRequest === undefined) return;
+
+            const music = document.createElement("audio");
+            music.src = `./music/${currentRequest}.mp3`;
+            music.autoplay = true;
+
+            if (currentType === 'bgm') {
+                music.loop = true;
+            }
+
+            // 音声タグを画面外に配置して再生
+            music.style.position = 'fixed';
+            music.style.left = '-100%';
+            document.body.appendChild(music);
+
+            // 対象のボタンを取得
+            const targetButton = document.getElementById(currentRequest);
+
+            if (targetButton) {
+                targetButton.disabled = true;
+
+                if (currentType === 'se') {
+                    await sleep(3000);
+                    targetButton.disabled = false;
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

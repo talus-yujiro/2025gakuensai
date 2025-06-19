@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <!--文字コード・互換モード-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <title>あらすじ | 2A - 2025学苑祭</title>
+    <!--ビューポート-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--css-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/glitch.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.2/css/all.css">
+    <!--web情報-->
+    <meta name="keywords" content="水戸一, 水戸一附属, 水戸一附属中, 二学年,">
+    <meta name="description" content="">
+    <meta name="author" content="©️ 2025 talus">
+    <!--更新日時-->
+    <meta name="date" content="2025-06-09">
+    <meta name="creation_date" content="2025">
+    <!--URL-->
+    <link rel="canonical" href="https://talus-yujiro.github.io/2025gakuensai/">
+    <!--アイコン-->
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="" sizes="180x180">
+    <!--windows-->
+    <meta name="msapplication-config" content="none">
+    <meta name="msapplication-TileImage" content="./img/mitoichi-fuzoku.png">
+    <!--safari-->
+    <link rel="mask-icon" href="">
+    <!--Android-->
+    <meta name="theme-color" content="#5787ff">
+    <link rel="icon" type="image/png" href="" sizes="192x192">
+    <!--CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.35.4"></script>
+    <style>
+        footer {
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            width: 100vw;
+        }
+
+        .dot {
+            text-emphasis: filled;
+            -webkit-text-emphasis: filled;
+        }
+    </style>
+</head>
+
+<body>
+    <footer>
+        <p>© 2025 talus</p>
+    </footer>
+    <script>
+        window.addEventListener("DOMContentLoaded", async () => {
+            const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
+            const styleSet = obj => {
+                obj.style.opacity = '0';
+                obj.style.transition = 'opacity 0.5s ease';
+                obj.style.textAlign = 'center';
+                obj.style.paddingTop = '1rem'
+            }
+
+            const synopsis = document.createElement("div");
+            synopsis.style.opacity = '1';
+            synopsis.style.position = 'fixed';
+            synopsis.style.width = "100vw";
+            synopsis.style.height = "100vh";
+            synopsis.style.zIndex = "1000";
+            synopsis.style.top = "0"
+            synopsis.style.padding = "5vw";
+
+            const title = document.createElement("h2");
+            title.textContent = "あらすじ";
+            title.classList.add("glitch");
+            title.dataset.text = "あらすじ";
+            styleSet(title);
+
+            const body1 = document.createElement("p");
+            body1.insertAdjacentHTML("beforeend",
+                `あなたは、遊び半分で魔法陣を作っていたところ、本物を作ってしまい、異世界に転移してしまった。`
+            );
+            styleSet(body1);
+
+            const body2 = document.createElement("p");
+            body2.textContent = 'でも、どこか現世に似ている…？';
+            styleSet(body2)
+
+            const body3 = document.createElement("p");
+            body3.insertAdjacentHTML("beforeend", '部屋にある謎から部屋を出る<span class="dot">カギ</span>を見つけ出そう。')
+            styleSet(body3)
+
+            synopsis.appendChild(title);
+            synopsis.appendChild(body1);
+            synopsis.appendChild(body2);
+            synopsis.appendChild(body3);
+            document.querySelector("body").appendChild(synopsis);
+
+            await sleep(2000);
+
+            title.style.opacity = '1';
+
+            await sleep(2000);
+
+            body1.style.opacity = '1';
+
+            await sleep(7000);
+
+            body2.style.opacity = '1';
+            body2.classList.add("glitch");
+            body2.dataset.text = "でも、どこか現世に似ている…？";
+
+            await sleep(4000);
+
+            body3.style.opacity = '1';
+        })
+    </script>
+    <script data-goatcounter="https://talus.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+
+</html>
